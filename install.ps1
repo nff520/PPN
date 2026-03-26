@@ -186,7 +186,7 @@ if ($svc.Status -ne 'Running') {
 }
 
 # ============================================================
-#  STEP 5 - Create the PPN Scheduled Task
+#  STEP 5 - Create the PPN AutoSettlement Scheduled Task
 # ============================================================
 Write-Header "STEP 5: Creating PPN Scheduled Task"
 
