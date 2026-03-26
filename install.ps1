@@ -203,7 +203,7 @@ if (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue) {
 # Action
 $action = New-ScheduledTaskAction -Execute $taskExe
 
-# Trigger - Daily at 8:00 PM
+# Trigger - Daily at $triggerTime
 $trigger = New-ScheduledTaskTrigger -Daily -At $triggerTime
 
 # Principal - run whether logged in or not, highest privileges
