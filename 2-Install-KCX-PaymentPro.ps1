@@ -186,7 +186,7 @@ Write-Host "[OK] Scheduled task '$taskName' created successfully." -ForegroundCo
 Write-Host ""
 Write-Host "  Name          : PPN"
 Write-Host "  Run as        : Logged in or not (S4U)"
-Write-Host "  Trigger       : Daily at 8:00 PM"
+Write-Host "  Trigger       : Daily at $triggerTime"
 Write-Host "  Action        : $taskExe"
 Write-Host "  Run on demand : Yes"
 Write-Host "  Max duration  : 3 days (force-stop if unresponsive)"
