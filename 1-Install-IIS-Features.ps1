@@ -66,5 +66,5 @@ if (Test-Path 'IIS:\Sites\Default Web Site') {
 Write-Host ""
 Write-Host "============================================================" -ForegroundColor Green
 Write-Host "  IIS features installed and configured successfully." -ForegroundColor Green
-Write-Host "  You may now run 2-Install-KCX-PaymentPro.bat" -ForegroundColor Green
+Write-Host "  You may now install the PPN software." -ForegroundColor Green
 Write-Host "============================================================" -ForegroundColor Green
