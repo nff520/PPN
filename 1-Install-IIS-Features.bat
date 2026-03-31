@@ -31,5 +31,5 @@ if %errorLevel% neq 0 (
 )
 
 echo.
-echo Run 2-Install-KCX-PaymentPro.bat next.
+echo 
 pause
