@@ -30,6 +30,4 @@ if %errorLevel% neq 0 (
     exit /b %errorLevel%
 )
 
-echo.
-echo 
 pause
