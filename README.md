@@ -26,7 +26,7 @@ Right-click `1-Install-IIS-Features.bat` and select **Run as Administrator**.
 This will install the IIS features and other prerequisites required for PPN.
 
 ### Step 2: Install PPN
-Run `PPN_Setup.exe` and complete the installation.
+Run `PPN_Setup_64bit_2.2.x.x_setup.exe` and complete the installation.
 
 ### Step 3: Finalize the Installation
 Right-click `2-Install-HRS-PaymentPro.bat` and select **Run as Administrator**.
