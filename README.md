@@ -4,7 +4,7 @@ Follow the steps below to install PPN correctly.
 
 ## Before You Begin
 
-Make sure the following are installed on the SQL Server or PPN server before starting:
+Make sure the following are installed on the SQL or PPN server before starting:
 
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
