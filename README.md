@@ -36,4 +36,4 @@ This will:
 - schedule the Autosettlement using Task Scheduler
 
 ## Important Notes
-- Adjust the Autosettlement task name on line 146 & trigger time on line 148.
+- Adjust the Autosettlement task name on line 174 & trigger time on line 176.
