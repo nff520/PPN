@@ -9,7 +9,7 @@
     4. Creates the PPN Autosettlement Scheduled Task in Task Scheduler
 .NOTES
     Must be run as Administrator.
-    Run with: PowerShell.exe -ExecutionPolicy Bypass -File 2-Install-KCX-PaymentPro.ps1
+    Run with: PowerShell.exe -ExecutionPolicy Bypass -File 2-Install-HRS-PaymentPro.ps1
     Requires 1-Install-IIS-Features.ps1 to have been run first.
 #>
 
