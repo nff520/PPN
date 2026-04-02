@@ -3,10 +3,10 @@
 .SYNOPSIS
     Step 2 of 2 - Configures KCX PaymentPro.Net.
 .DESCRIPTION
-    1. Removes the Default IIS Website
+    1. Checks for and removes if existing KCXPPNService
     2. Installs KCXPPNService via InstallUtil
     3. Starts KCXPPNService and verifies it stays running
-    4. Creates the PPN Scheduled Task in Task Scheduler
+    4. Creates the PPN Autosettlement Scheduled Task in Task Scheduler
 .NOTES
     Must be run as Administrator.
     Run with: PowerShell.exe -ExecutionPolicy Bypass -File 2-Install-KCX-PaymentPro.ps1
