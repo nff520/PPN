@@ -20,7 +20,7 @@ All of the following files must remain in the **same folder**:
 
 ## Installation Steps
 
-### Step 1: Install PPN Prerequisites
+### Step 1: Install IIS Prerequisites
 Right-click `1-Install-IIS-Features.bat` and select **Run as Administrator**.
 
 This will install the IIS features and other prerequisites required for PPN.
