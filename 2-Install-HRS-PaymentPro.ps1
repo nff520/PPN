@@ -169,6 +169,8 @@ if ($svc.Status -ne 'Running') {
 # ============================================================
 #  STEP 4 - Create the PPN Scheduled Task
 # ============================================================
+Write-Header "STEP 4: Creating PPN Scheduled Task"
+
 $taskName    = 'PPN'
 $taskExe     = 'C:\Program Files\KCX PaymentPro.Net\KCX.PPN.AutoSettlement.exe'
 $triggerTime = '20:00'
@@ -179,36 +181,44 @@ if (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue) {
     Write-Host "[INFO] Existing '$taskName' task removed; will be recreated." -ForegroundColor Yellow
 }
 
-# Use cmd.exe so the EXE path is stored/passed in quotes
-$action = New-ScheduledTaskAction `
-    -Execute 'C:\Windows\System32\cmd.exe' `
-    -Argument "/c `"$taskExe`""
+# Action
+$action = New-ScheduledTaskAction -Execute $taskExe
 
-# Trigger - Daily at 8:00 PM
+# Trigger - Daily at $triggerTime
 $trigger = New-ScheduledTaskTrigger -Daily -At $triggerTime
 
-# Run as SYSTEM, whether user is logged on or not
+# Principal - run whether logged in or not, highest privileges
 $principal = New-ScheduledTaskPrincipal `
-    -UserId 'SYSTEM' `
-    -LogonType ServiceAccount `
-    -RunLevel Highest
+    -UserId    (whoami) `
+    -LogonType S4U `
+    -RunLevel  Highest
 
-# Basic task settings
+# Settings
 $settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
-    -StartWhenAvailable
+    -StartWhenAvailable `
+    -ExecutionTimeLimit (New-TimeSpan -Days 3) `
+    -MultipleInstances  IgnoreNew
 
 # Register the task
 Register-ScheduledTask `
-    -TaskName $taskName `
-    -Action $action `
-    -Trigger $trigger `
+    -TaskName  $taskName `
+    -Action    $action `
+    -Trigger   $trigger `
     -Principal $principal `
-    -Settings $settings `
-    -Description 'Runs KCX PaymentPro.Net AutoSettlement daily at 8:00 PM'
+    -Settings  $settings `
+    -Force | Out-Null
 
-Write-Host "[SUCCESS] Scheduled task '$taskName' created to run daily at 8:00 PM." -ForegroundColor Green
+Write-Host "[OK] Scheduled task '$taskName' created successfully." -ForegroundColor Green
+Write-Host ""
+Write-Host "  Name          : PPN"
+Write-Host "  Run as        : Logged in or not (S4U)"
+Write-Host "  Trigger       : Daily at $triggerTime"
+Write-Host "  Action        : $taskExe"
+Write-Host "  Run on demand : Yes"
+Write-Host "  Max duration  : 3 days (force-stop if unresponsive)"
+
 
 # ============================================================
 #  Done
